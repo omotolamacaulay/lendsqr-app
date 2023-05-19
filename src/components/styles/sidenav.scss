@@ -46,7 +46,7 @@
     border-right: 1px solid #ececec;
     overflow-y: scroll;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
-
+    transition: all 500ms;
     @media screen and (min-width: 992px) {
         display: block;
     }
@@ -107,14 +107,14 @@
         @include on-event {
             text-decoration: none;
             color: #213F7D;
-            opacity: 1;
-            background: rgba(0, 120, 154, 0.1);
-            border-left: 3px solid #39CDCC;
+            // opacity: 1;
+            background: rgba(57, 205, 204, 0.06);
+            border-left: 3px solid rgb(57, 205, 204);
         }
     }
     &__hr {
-        opacity: 0.1;
-        border: 1px solid #213F7D;
+        border: 1px solid rgba(33, 63, 125, 0.1);
         margin-top: 71px;
+        margin-bottom: 8px;
     }
 }
