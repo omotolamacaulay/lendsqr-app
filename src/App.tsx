@@ -4,17 +4,18 @@ import { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/auth/Login';
 import Home from './components/pages/Home';
-import Navbar from './components/layout/Navbar';
+import UserDetail from './components/users/UserDetail';
+import Users from './components/users/Users';
 
 function App() {
   return (
     <Router>
       <Fragment>
-        <Navbar />
-        <div className="container">
+        <div className="">
           <Routes>
-            <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/' element={<Home><Users /></Home>} />
+            <Route path='/users/123' element={ <Home><UserDetail /></Home>} />
           </Routes>
         </div>
       </Fragment>
