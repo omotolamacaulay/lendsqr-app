@@ -1,0 +1,302 @@
+@mixin on-event($self: false) {
+    @if $self {
+
+        &,
+        &.active,
+        &:hover,
+        &:active,
+        &:focus,
+        &:focus-within {
+            @content;
+        }
+    }
+
+    @else {
+
+        &.active,
+        &:hover,
+        &:active,
+        &:focus,
+        &:focus-within {
+            @content;
+        }
+    }
+}
+
+%grid-gap {
+    display: grid;
+    gap: 8px;
+}
+
+.userDetail {
+    margin-top: 100px;
+
+    h1,
+    h2 {
+        font-weight: 500;
+        color: #213F7D;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 24px;
+
+        @media screen and (min-width: 786px) {
+            margin-bottom: unset;
+        }
+    }
+
+    h2 {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+
+
+    h6 {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        margin: 0;
+        color: #545F7D;
+    }
+
+    .back-button {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #545F7D;
+        text-decoration: none;
+    }
+
+    &-actions {
+        display: block;
+        margin-top: 26px;
+        margin-bottom: 40px;
+
+        @media screen and (min-width: 576px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &-cta {
+        display: grid;
+        gap: 20px;
+        width: fit-content;
+
+        @media screen and (min-width: 992px) {
+            display: flex;
+            gap: 20px;
+        }
+
+        &__blacklist,
+        &__activate {
+            display: block;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 16px;
+            text-align: center;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 12px 16px;
+            background-color: #FBFBFB;
+        }
+
+        &__blacklist {
+            color: #E4033B;
+            border: 1px solid #E4033B;
+        }
+
+        &__activate {
+            color: #39CDCC;
+            border: 1px solid #39CDCC;
+        }
+    }
+
+    &-menu {
+        background: #FFFFFF;
+        border: 1px solid rgba(33, 63, 125, 0.06);
+        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+        border-radius: 4px;
+        padding: 30px 0px 0px 30px;
+        margin-bottom: 30px;
+
+        &__group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 30px;
+        }
+
+        &__nameArea {
+            @extend %grid-gap;
+            padding-top: 8px;
+            padding-bottom: 16px;
+        }
+
+        &__ratings,
+        &__bank {
+            @extend %grid-gap;
+            padding-left: 30px;
+            border-left: 1px solid rgba(84, 95, 125, 0.2);
+            padding-top: 8px;
+            padding-bottom: 16px;
+            margin-left: -30px;
+
+            p {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+
+                color: #545F7D;
+            }
+        }
+
+        &__bank {
+            span {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+                /* identical to box height */
+
+
+                color: #213F7D;
+            }
+        }
+    }
+
+    .tabGroup {
+        width: 100%;
+        overflow-x: scroll;
+        margin-top: 51px;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab__ul {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-gap: 16px;
+            list-style-type: none;
+            padding: 0px;
+            width: fit-content;
+            margin: 0 auto;
+
+            @media screen and (min-width: 992px) {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                grid-gap: 16px;
+                margin: unset;
+                width: 100%;
+            }
+        }
+
+        .tab__li {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            color: rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+            width: fit-content;
+
+            span {
+                display: block;
+                padding: 0px 25px;
+                padding-bottom: 10px;
+                white-space: nowrap;
+                text-decoration: none;
+                transition: all 500ms;
+
+                @include on-event {
+                    color: #39CDCC;
+                    text-decoration: none;
+                    border-bottom: 2px solid #39CDCC;
+                }
+            }
+        }
+    }
+
+    &__info {
+        background: #FFFFFF;
+        border: 1px solid rgba(33, 63, 125, 0.06);
+        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+        border-radius: 4px;
+        padding: 30px;
+
+        h3 {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+            color: #213F7D;
+            margin-bottom: 30px;
+        }
+
+        h6 {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 14px;
+            margin: 0px;
+            text-transform: uppercase;
+
+            color: #545F7D;
+        }
+
+        p {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+            margin: 0px;
+
+            color: #545F7D;
+        }
+
+        hr {
+            opacity: 0.1;
+            border: 1px solid #213F7D;
+            margin-top: 28px;
+            margin-bottom: 30px;
+        }
+
+        .personal-info {
+            &__content {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 40px;
+
+                div {
+                    @extend %grid-gap;
+                }
+            }
+        }
+
+        .education {
+            &__content {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 40px;
+
+                div {
+                    @extend %grid-gap;
+                }
+            }
+        }
+
+        .socials,
+        .guarantor {
+            &__content {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+                gap: 40px;
+
+                div {
+                    @extend %grid-gap;
+                }
+            }
+        }
+    }
+}
