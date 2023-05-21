@@ -1,76 +1,70 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import '../styles/sidenav.scss'
+import { SwitchOrg, Dashboard, Users, Guarantors, Loans, DecisionModels, Savings, LoanRequest, Whitelist, Karma, Organization, LoanProducts, SavingProducts, FeesCharges, Transactions, Services, ServiceAccount, Settlements, Reports, Preferences, FeesAndPricing, AuditLogs, SystemMessages, SideArrow, Logout } from "../../assets";
 
 const Sidenav = () => {
     return (
         <nav className="sidebar">
-            {/* <span className="MasterLayout__navbar-brand logo-bg">
-                <Link to="/"><img src="" alt="Lendsqr" className="MasterLayout__logo" /></Link>
-            </span> */}
             <div className="sidebar__menu">
-                <h4>Switch Organization</h4>
+                <h4><img src={SwitchOrg()} alt="" /> Switch Organization<img src={SideArrow()} className='sideArrow' alt="" /></h4>
                 <div>
                     <ul className="sidebar__list">
                         <li>
-                            <Link to="{{roleRoute}}/municipalities"
+                            <Link to=""
                                 className="sidebar__link">
-                                Dashboard
+                               <img src={Dashboard()} alt="" /> Dashboard
                             </Link>
                         </li>
                         <p>CUSTOMERS</p>
                         <li>
-                            <Link to="{{profileRoute}}"
+                            <Link to="/"
                                 className="sidebar__link">
-                                Users
+                               <img src={Users()} alt="" /> Users
                             </Link>
                         </li>
                         <li>
-                            <Link to="{{profileRoute}}"
+                            <Link to=""
                                 className="sidebar__link">
-                                Guarantors
+                               <img src={Guarantors()} alt="" /> Guarantors
                             </Link>
                         </li>
 
                         <li>
-                            <Link to="/grants" className="sidebar__link">
-
-                                Loans
+                            <Link to="" className="sidebar__link">
+                               <img src={Loans()} alt="" /> Loans
                             </Link>
                         </li>
 
                         <li>
-                            <Link to="/recipients"
+                            <Link to=""
                                 className="sidebar__link">
-
-                                Decision Models
+                               <img src={DecisionModels()} alt="" /> Decision Models
                             </Link>
                         </li>
 
                         <li>
-                            <Link to="/grants" className="sidebar__link">
-
-
-                                Savings
+                            <Link to="" className="sidebar__link">
+                            <img src={Savings()} alt="" />Savings
                             </Link>
                         </li>
 
                         <li>
-                            <Link to="/recipients"
+                            <Link to=""
                                 className="sidebar__link">
-                                Loan Requests
+                              <img src={LoanRequest()} alt="" />Loan Requests
                             </Link>
                         </li>
                         <li>
-                            <Link to="/recipients"
+                            <Link to=""
                                 className="sidebar__link">
-                                Whitelist
+                                <img src={Whitelist()} alt="" />Whitelist
                             </Link>
                         </li>
                         <li>
-                            <Link to="/recipients"
+                            <Link to=""
                                 className="sidebar__link">
-                                Karma
+                                <img src={Karma()} alt="" />Karma
                             </Link>
                         </li>
 
@@ -81,53 +75,50 @@ const Sidenav = () => {
                         <ul className="sidebar__list">
 
                             <li>
-                                <Link to="/reminders" className="sidebar__link">
-                                    Organization
+                                <Link to="" className="sidebar__link">
+                                <img src={Organization()} alt="" />Organization
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/reminders" className="sidebar__link">
-                                    Loan Products
+                                <Link to="" className="sidebar__link">
+                                <img src={LoanProducts()} alt="" />Loan Products
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/reminders" className="sidebar__link">
-                                    Savings Products
+                                <Link to="" className="sidebar__link">
+                                <img src={SavingProducts()} alt="" />Savings Products
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/reminders" className="sidebar__link">
-                                    Fees and Charges
+                                <Link to="" className="sidebar__link">
+                                <img src={FeesCharges()} alt="" />Fees and Charges
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/reminders" className="sidebar__link">
-                                    Transactions
+                                <Link to="" className="sidebar__link">
+                                <img src={Transactions()} alt="" />Transactions
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/reminders" className="sidebar__link">
-                                    Services
+                                <Link to="" className="sidebar__link">
+                                <img src={Services()} alt="" />Services
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/reminders" className="sidebar__link">
-                                    Service Account
+                                <Link to="" className="sidebar__link">
+                                <img src={ServiceAccount()} alt="" />Service Account
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/reminders" className="sidebar__link">
-                                    Settlements
+                                <Link to="" className="sidebar__link">
+                                <img src={Settlements()} alt="" />Settlements
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/reminders" className="sidebar__link">
-                                    Reports
+                                <Link to="" className="sidebar__link">
+                                <img src={Reports()} alt="" />Reports
                                 </Link>
                             </li>
-                            {/* 
-  
-                <div className="m-x-20 sidebar__hr"></div> */}
                         </ul>
                     </div>
                     <div>
@@ -135,37 +126,37 @@ const Sidenav = () => {
                         <ul className="sidebar__list">
 
                             <li>
-                                <Link to="/reminders" className="sidebar__link">
-                                Preferences
+                                <Link to="" className="sidebar__link">
+                                <img src={Preferences()} alt="" />Preferences
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/reminders" className="sidebar__link">
-                                Fees and Pricing
+                                <Link to="" className="sidebar__link">
+                                <img src={FeesAndPricing()} alt="" />Fees and Pricing
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/reminders" className="sidebar__link">
-                                Audit Logs
+                                <Link to="" className="sidebar__link">
+                                <img src={AuditLogs()} alt="" />Audit Logs
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/reminders" className="sidebar__link">
-                                Systems Messages
+                                <Link to="" className="sidebar__link">
+                                <img src={SystemMessages()} alt="" />Systems Messages
                                 </Link>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div>
-          <div className="sidebar__hr"></div>
+                    <div className="sidebar__hr"></div>
 
-          <ul className="sidebar__list">
-            <li><Link to="/login" id="logout-button" className="sidebar__link"> Log Out</Link>
-            </li>
-          </ul>
-          <p>v1.2.0</p>
-        </div>
+                    <ul className="sidebar__list">
+                        <li><Link to="/login" id="logout-button" className="sidebar__link"><img src={Logout()} alt="" />Log Out</Link>
+                        </li>
+                    </ul>
+                    <p>v1.2.0</p>
+                </div>
             </div>
         </nav>
     )

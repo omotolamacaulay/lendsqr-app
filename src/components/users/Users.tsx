@@ -2,6 +2,7 @@ import React from "react";
 import { UserTile } from "./UserTile";
 import { useUsers } from "../UserProvider";
 import '../styles/users.scss'
+import { DashUsers, DashActiveUsers, DashUsersWithLoans, DashUsersWithSavings, Filter } from "../../assets";
 // import UserDetail from "./UserDetail";
 
 
@@ -13,7 +14,7 @@ const Users = () => {
             <div className="dashboard__summary">
                 <article className="dashboard__summary--box">
                     <div className="dashboard__summary--box__icon">
-                        {/* <img src="image/part-Dash.png" alt="" srcset=""> */}
+                        <img src={DashUsers()} alt="" />
                         <span className="dashboard__summary--topic">
                             Users
                         </span>
@@ -24,12 +25,10 @@ const Users = () => {
                 </article>
                 <article className="dashboard__summary--box">
                     <div className="dashboard__summary--box__icon">
-                        {/* <img src="image/part-Dash.png" alt="" srcset=""> */}
-                        {/* <a href=""> */}
+                        <img src={DashActiveUsers()} alt="" />
                         <span className="dashboard__summary--topic">
                             Active Users
                         </span>
-                        {/* </a> */}
                     </div>
                     <div className="dashboard__summary--box__number">
                         <span> 22</span>
@@ -37,7 +36,7 @@ const Users = () => {
                 </article>
                 <article className="dashboard__summary--box">
                     <div className="dashboard__summary--box__icon">
-                        {/* <img src="image/part-Dash.png" alt="" srcset=""> */}
+                        <img src={DashUsersWithLoans()} alt="" />
                         <span className="dashboard__summary--topic">
                             Users with Loans
                         </span>
@@ -48,7 +47,7 @@ const Users = () => {
                 </article>
                 <article className="dashboard__summary--box">
                     <div className="dashboard__summary--box__icon">
-                        {/* <img src="image/part-Dash.png" alt="" srcset=""> */}
+                        <img src={DashUsersWithSavings()} alt="" />
                         <span className="dashboard__summary--topic">
                             Users with Savings
                         </span>
@@ -59,23 +58,26 @@ const Users = () => {
                 </article>
             </div>
             <div className="card-group-2">
+                <div className="header-body">
                 <div className="table-head">
                     <div className="group-1">
-                        <div>organization</div>
-                        <div>Username</div>
-                        <div>Email</div>
-                        <div>Phone number</div>
-                        <div>Date joined</div>
+                        <div>organization <img src={Filter()} alt="Filter Organization" /></div>
+                        <div>Username<img src={Filter()} alt="Filter Username" /></div>
+                        <div>Email<img src={Filter()} alt="Filter Email" /></div>
+                        <div>Phone number<img src={Filter()} alt="Filter Phone Number" /></div>
+                        <div>Date joined<img src={Filter()} alt="Filter Date Joined" /></div>
 
                     </div>
                     <div className="group-2">
-                        <div>Status</div>
+                        <div>Status<img src={Filter()} alt="Filter Status" /></div>
                         <div></div>
                     </div>
                 </div>
                 {users.map(user => (
                     <UserTile key={user.id} user={user} />
                 ))}
+
+                </div>
             </div>
         </div>
     )

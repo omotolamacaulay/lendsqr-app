@@ -69,6 +69,7 @@
         line-height: 19px;
         color: #545F7D;
         text-decoration: none;
+
         img {
             margin-right: 14px;
         }
@@ -133,6 +134,12 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
             gap: 30px;
+
+            img {
+                border-radius: 50%;
+                width: 100px;
+                height: 100px;
+            }
         }
 
         &__nameArea {
@@ -173,6 +180,7 @@
         width: 100%;
         overflow-x: scroll;
         margin-top: 51px;
+
         &::-webkit-scrollbar {
             display: none;
         }

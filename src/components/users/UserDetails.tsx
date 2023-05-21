@@ -29,7 +29,10 @@ const UserDetails = () => {
             getSingleUser()
         }
 
-    }, [usersDispatch, id])
+    }, [usersDispatch, id]);
+    const truncateString = (str: String, len: Number) => {
+        return str?.length > len ? str.substr(0, Math.max(Number(len) - 3, 0)) + '...' : str;
+    }
     return (
         <div className="userDetail">
             <section className="top-area">
@@ -44,6 +47,7 @@ const UserDetails = () => {
             </section>
             <section className="userDetail-menu">
                 <div className="userDetail-menu__group">
+                    <img src={user.profile.avatar} alt="" />
                     <div className="userDetail-menu__nameArea">
                         <h2>{user.profile.firstName}</h2>
                         <h6>{user.accountNumber}</h6>
@@ -105,7 +109,7 @@ const UserDetails = () => {
                         </div>
                         <div>
                             <h6>Email Address</h6>
-                            <p>{user.email}</p>
+                            <p>{truncateString(user.email, 20)}</p>
                         </div>
                         <div>
                             <h6>Bvn</h6>
@@ -151,7 +155,7 @@ const UserDetails = () => {
                         </div>
                         <div>
                             <h6>office email</h6>
-                            <p>{user.education.officeEmail}</p>
+                            <p>{truncateString(user.education.officeEmail, 20)}</p>
                         </div>
                         <div>
                             <h6>Monthly income</h6>

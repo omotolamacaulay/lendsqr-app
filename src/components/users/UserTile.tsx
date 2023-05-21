@@ -1,6 +1,7 @@
 import { User } from "../../types";
 // import { useUsers } from "../UserProvider";
 import { Link } from "react-router-dom";
+import { Hamburger } from "../../assets";
 import '../styles/users.scss'
 
 interface UserTileProps {
@@ -9,7 +10,7 @@ interface UserTileProps {
 
 export const UserTile = ({ user }: UserTileProps) => {
     const truncateString = (str: String, len: Number) => {
-        return str?.length > len ? str.substr(0, Math.max(Number(len) - 3, 0)) + '...' : str;
+        return str?.length > len ? str.substring(0, Math.max(Number(len) - 3, 0)) + '...' : str;
     }
     return (
         <div className="table-body">
@@ -22,8 +23,8 @@ export const UserTile = ({ user }: UserTileProps) => {
 
             </div>
             <div className="body-group-2">
-                <div className="inactive">Status</div>
-                <div>ham</div>
+                <div className="inactive">Inactive</div>
+                <div className="hamburger" ><img src={Hamburger()} alt="" /></div>
             </div>
         </div>
     )
