@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { UserTile } from "./UserTile";
+import { useUsers } from "../UserProvider";
 import '../styles/users.scss'
 // import UserDetail from "./UserDetail";
 
 
 const Users = () => {
+    const { users } = useUsers();
     return (
         <div className="home">
             <h2>Users</h2>
@@ -17,7 +19,7 @@ const Users = () => {
                         </span>
                     </div>
                     <div className="dashboard__summary--box__number">
-                        <span> 22</span>
+                        <span>{users.length}</span>
                     </div>
                 </article>
                 <article className="dashboard__summary--box">
@@ -25,7 +27,7 @@ const Users = () => {
                         {/* <img src="image/part-Dash.png" alt="" srcset=""> */}
                         {/* <a href=""> */}
                         <span className="dashboard__summary--topic">
-                            Users
+                            Active Users
                         </span>
                         {/* </a> */}
                     </div>
@@ -37,18 +39,18 @@ const Users = () => {
                     <div className="dashboard__summary--box__icon">
                         {/* <img src="image/part-Dash.png" alt="" srcset=""> */}
                         <span className="dashboard__summary--topic">
-                            Users
+                            Users with Loans
                         </span>
                     </div>
                     <div className="dashboard__summary--box__number">
-                        <span> 22</span>
+                        <span>{users.length}</span>
                     </div>
                 </article>
                 <article className="dashboard__summary--box">
                     <div className="dashboard__summary--box__icon">
                         {/* <img src="image/part-Dash.png" alt="" srcset=""> */}
                         <span className="dashboard__summary--topic">
-                            Users
+                            Users with Savings
                         </span>
                     </div>
                     <div className="dashboard__summary--box__number">
@@ -71,20 +73,9 @@ const Users = () => {
                         <div></div>
                     </div>
                 </div>
-                <div className="table-body">
-                    <div className="body-group-1">
-                        <div>Lendsqr</div>
-                        <div><Link to="/users/123">Adedeji</Link></div>
-                        <div>lendsqr@gmail.com</div>
-                        <div>08023423456</div>
-                        <div>Date joined</div>
-
-                    </div>
-                    <div className="body-group-2">
-                        <div className="inactive">Status</div>
-                        <div>ham</div>
-                    </div>
-                </div>
+                {users.map(user => (
+                    <UserTile key={user.id} user={user} />
+                ))}
             </div>
         </div>
     )
