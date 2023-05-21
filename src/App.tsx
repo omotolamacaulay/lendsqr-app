@@ -4,7 +4,7 @@ import { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/auth/Login';
 import Home from './components/pages/Home';
-import UserDetail from './components/users/UserDetail';
+import UserDetails from './components/users/UserDetails';
 import Users from './components/users/Users';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           <Routes>
             <Route path='/login' element={<Login />} />
             <Route path='/' element={<Home><Users /></Home>} />
-            <Route path='/users/123' element={ <Home><UserDetail /></Home>} />
+            <Route path='/users/:id' element={ <Home><UserDetails /></Home>} />
           </Routes>
         </div>
       </Fragment>

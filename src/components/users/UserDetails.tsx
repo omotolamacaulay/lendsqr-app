@@ -1,12 +1,39 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React, { useEffect } from "react"
+import { Link, useParams } from "react-router-dom"
 import '../styles/userdetail.scss'
+import { useUsers } from '../UserProvider'
+import { UserDetail, UserDetail as UserProps } from "../../types"
+import { BackArrow } from "../../assets"
 
-const UserDetail = () => {
+const UserDetails = () => {
+    const { id } = useParams();
+    const { usersDispatch, user } = useUsers()
+    useEffect(() => {
+        const users = localStorage.getItem('users') as string;
+        let data: UserDetail;
+        if (users) {
+            data = JSON.parse(users).find((user: UserProps) => user.id === id)
+            usersDispatch({
+                type: "FETCH__USERDETAIL",
+                payload: {data} 
+            })
+        } else {
+            const getSingleUser = async () => {
+                const res = await fetch(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${id}`);
+                data = await res.json();
+                usersDispatch({
+                    type: "FETCH__USERDETAIL",
+                    payload: {data} 
+                })
+            }
+            getSingleUser()
+        }
+
+    }, [usersDispatch, id])
     return (
         <div className="userDetail">
             <section className="top-area">
-                <Link to="/" className="back-button">Back to Users</Link>
+                <Link to="/" className="back-button"><img src={BackArrow()} alt="" />Back to Users</Link>
                 <div className="userDetail-actions">
                     <h1>User Details</h1>
                     <div className="userDetail-cta">
@@ -18,15 +45,15 @@ const UserDetail = () => {
             <section className="userDetail-menu">
                 <div className="userDetail-menu__group">
                     <div className="userDetail-menu__nameArea">
-                        <h2>Grace Effiom</h2>
-                        <h6>LSQFf587g90</h6>
+                        <h2>{user.profile.firstName}</h2>
+                        <h6>{user.accountNumber}</h6>
                     </div>
                     <div className="userDetail-menu__ratings">
                         <p>User’s Tier</p>
                     </div>
                     <div className="userDetail-menu__bank">
-                        <h2>₦200,000.00</h2>
-                        <span>9912345678/Providus Bank</span>
+                        <h2>{user.accountNumber}</h2>
+                        <span>{user.profile.currency}{user.accountBalance}/Providus Bank</span>
                     </div>
                 </div>
                 <div className="tabGroup">
@@ -70,35 +97,35 @@ const UserDetail = () => {
                     <div className="personal-info__content">
                         <div>
                             <h6>full Name</h6>
-                            <p>Grace Effiom</p>
+                            <p>{user.profile.firstName} {user.profile.lastName}</p>
                         </div>
                         <div>
                             <h6>Phone Number</h6>
-                            <p>07060780922</p>
+                            <p>{user.profile.phoneNumber}</p>
                         </div>
                         <div>
                             <h6>Email Address</h6>
-                            <p>grace@gmail.com</p>
+                            <p>{user.email}</p>
                         </div>
                         <div>
                             <h6>Bvn</h6>
-                            <p>07060780922</p>
+                            <p>{user.profile.bvn}</p>
                         </div>
                         <div>
                             <h6>Gender</h6>
-                            <p>Female</p>
+                            <p>{user.profile.gender}</p>
                         </div>
                         <div>
                             <h6>Marital status</h6>
-                            <p>Single</p>
+                            <p>{user.profile.maritalStatus ? user.profile.maritalStatus : 'Not Provided'}</p>
                         </div>
                         <div>
                             <h6>Children</h6>
-                            <p>None</p>
+                            <p>{user.profile.children ? user.profile.children : 'Not Provided'}</p>
                         </div>
                         <div>
                             <h6>Type of residence</h6>
-                            <p>Parent’s Apartment</p>
+                            <p>{user.profile.residence ? user.profile.residence : 'Not Provided'}</p>
                         </div>
                     </div>
                 </div>
@@ -108,31 +135,31 @@ const UserDetail = () => {
                     <div className="education__content">
                         <div>
                             <h6>level of education</h6>
-                            <p>B.Sc</p>
+                            <p>{user.education.level}</p>
                         </div>
                         <div>
                             <h6>employment status</h6>
-                            <p>Employed</p>
+                            <p>{user.education.employmentStatus}</p>
                         </div>
                         <div>
                             <h6>sector of employment</h6>
-                            <p>FinTech</p>
+                            <p>{user.education.sector}</p>
                         </div>
                         <div>
                             <h6>Duration of employment</h6>
-                            <p>2 years</p>
+                            <p>{user.education.duration}</p>
                         </div>
                         <div>
                             <h6>office email</h6>
-                            <p>grace@lendsqr.com</p>
+                            <p>{user.education.officeEmail}</p>
                         </div>
                         <div>
                             <h6>Monthly income</h6>
-                            <p>₦200,000.00- ₦400,000.00</p>
+                            <p>{user.education.monthlyIncome}</p>
                         </div>
                         <div>
                             <h6>loan repayment</h6>
-                            <p>40,000</p>
+                            <p>{user.education.loanRepayment}</p>
                         </div>
                     </div>
                 </div>
@@ -142,15 +169,15 @@ const UserDetail = () => {
                     <div className="socials__content">
                         <div>
                             <h6>Twitter</h6>
-                            <p>@grace_effiom</p>
+                            <p>{user.socials.twitter}</p>
                         </div>
                         <div>
                             <h6>Facebook</h6>
-                            <p>Grace Effiom</p>
+                            <p>{user.socials.facebook}</p>
                         </div>
                         <div>
                             <h6>Instagram</h6>
-                            <p>FinTech</p>
+                            <p>{user.socials.instagram}</p>
                         </div>
                     </div>
                 </div>
@@ -160,19 +187,19 @@ const UserDetail = () => {
                     <div className="guarantor__content">
                         <div>
                             <h6>full Name</h6>
-                            <p>Debby Ogana</p>
+                            <p>{user.guarantor.firstName} {user.guarantor.lastName}</p>
                         </div>
                         <div>
                             <h6>Phone Number</h6>
-                            <p>07060780922</p>
+                            <p>{user.guarantor.phoneNumber}</p>
                         </div>
                         <div>
                             <h6>Email Address</h6>
-                            <p>debby@gmail.com</p>
+                            <p>{user.guarantor.email ? user.guarantor.email : 'Not Provided'}</p>
                         </div>
                         <div>
                             <h6>Relationship</h6>
-                            <p>Sister</p>
+                            <p>{user.guarantor.relationship ? user.guarantor.relationship : 'Not Provided'}</p>
                         </div>
                     </div>
                 </div>
@@ -181,4 +208,4 @@ const UserDetail = () => {
     )
 }
 
-export default UserDetail;
+export default UserDetails;
