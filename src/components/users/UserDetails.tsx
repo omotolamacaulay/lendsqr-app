@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom"
 import '../styles/userdetail.scss'
 import { useUsers } from '../UserProvider'
 import { UserDetail, UserDetail as UserProps } from "../../types"
-import { BackArrow } from "../../assets"
+import { BackArrow } from "../../assets/"
 
 const UserDetails = () => {
     const { id } = useParams();

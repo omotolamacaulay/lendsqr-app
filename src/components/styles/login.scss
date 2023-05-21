@@ -22,28 +22,66 @@
         }
     }
 }
+
 .login {
     padding: 67px;
+    max-width: 100%;
+    padding: 16px;
+    min-height: 100vh;
+    background-color: #FFFFFF;
+    display: grid;
+    grid-template-columns: 1fr;
+    // transform: translate(0px, 20%);
+
+    @media screen and (min-width: 992px) {
+        // align-items: center;
+        grid-template-columns: 0.8fr 1fr;
+    }
+
+    @media screen and (min-width: 992px) {
+        padding: 30px;
+    }
 
     h1 {
         color: #213F7D;
         width: 283px;
         display: flex;
         align-items: center;
+        margin-bottom: auto;
+
+        img {
+            margin-right: 10px;
+        }
+    }
+
+    .left-grid {
+        display: none;
+        @media screen and (min-width: 992px) {
+            display: grid;
+        }
+        .vector {
+            margin-top: 70px;
+            width: fit-content;
+            display: none;
+
+            @media screen and (min-width: 992px) {
+                display: grid;
+            }
+        }
+
+        h1 {
+            align-self: start;
+            display: block !important;
+        }
     }
 
     &__grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        
-        @media screen and (min-width: 786px) {
-            align-items: center;
-            grid-template-columns: 0.8fr 1fr;
-        }
+        align-self: center;
     }
 
     &__form {
         margin: 0 auto;
+        width: 80%;
 
         h1 {
             font-weight: 700;
@@ -65,18 +103,35 @@
 
         .form-group {
             margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            position: relative;
 
             label {
                 display: none;
             }
 
-            input[type=password],
-            input[type=email] {
+            small {
+                position: absolute;
+                top: 35%;
+                right: 3%;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 16px;
+                text-align: center;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                cursor: pointer;
+                color: #39CDCC;
+            }
+
+            .input {
                 padding: 0px 16px;
                 background: #FFFFFF;
                 border: 2px solid rgba(84, 95, 125, 0.15);
                 border-radius: 5px;
-                width: 447px;
+                width: initial;
                 height: 50px;
             }
         }
@@ -96,7 +151,8 @@
         .submit {
             background: #39CDCC;
             border-radius: 8px;
-            height: 48px;
+            // height: 48px;
+            width: 100%;
             color: #FFFFFF;
             font-weight: 600;
             font-size: 14px;
@@ -107,10 +163,19 @@
             justify-content: center;
             text-decoration: none;
             text-transform: uppercase;
+
             @include on-event {
                 text-decoration: none;
             }
         }
     }
-
+    .mobile-logo {
+        display: block;
+        position: absolute;
+        top: 2%;
+        left: 8%;
+        @media screen and (min-width: 992px) {
+            display: none;
+        }
+    }
 }
