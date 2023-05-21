@@ -1,0 +1,116 @@
+@mixin on-event($self: false) {
+    @if $self {
+
+        &,
+        &.active,
+        &:hover,
+        &:active,
+        &:focus,
+        &:focus-within {
+            @content;
+        }
+    }
+
+    @else {
+
+        &.active,
+        &:hover,
+        &:active,
+        &:focus,
+        &:focus-within {
+            @content;
+        }
+    }
+}
+.login {
+    padding: 67px;
+
+    h1 {
+        color: #213F7D;
+        width: 283px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        
+        @media screen and (min-width: 786px) {
+            align-items: center;
+            grid-template-columns: 0.8fr 1fr;
+        }
+    }
+
+    &__form {
+        margin: 0 auto;
+
+        h1 {
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 55px;
+            letter-spacing: -0.04em;
+            color: #213F7D;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 27px;
+            color: #545F7D;
+            margin-top: 0px;
+            margin-bottom: 60px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+
+            label {
+                display: none;
+            }
+
+            input[type=password],
+            input[type=email] {
+                padding: 0px 16px;
+                background: #FFFFFF;
+                border: 2px solid rgba(84, 95, 125, 0.15);
+                border-radius: 5px;
+                width: 447px;
+                height: 50px;
+            }
+        }
+
+        span {
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 16px;
+            display: block;
+            text-align: left;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #39CDCC;
+            margin-bottom: 30px;
+        }
+
+        .submit {
+            background: #39CDCC;
+            border-radius: 8px;
+            height: 48px;
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 19px;
+            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            @include on-event {
+                text-decoration: none;
+            }
+        }
+    }
+
+}

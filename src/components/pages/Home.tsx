@@ -3,16 +3,19 @@ import Sidenav from "../layout/Sidenav"
 import Navbar from "../layout/Navbar"
 import '../styles/navbar.scss'
 import '../styles/home.scss'
+import { UserProvider } from "../UserProvider"
 
 const Home = ({ children }: { children: React.ReactElement }) => {
     return (
-        <div className="container">
-            <Navbar />
-            <div>
-                {children}
+        <UserProvider>
+            <div className="container">
+                <Navbar />
+                <div>
+                    {children}
+                </div>
+                <Sidenav />
             </div>
-            <Sidenav />
-        </div>
+        </UserProvider>
     )
 }
 
