@@ -70,6 +70,13 @@
         margin-bottom: 30px;
         color: #213F7D;
     }
+    img {
+         margin-right: 10px;   
+    }
+    .sideArrow {
+        margin-right: 0px;
+        margin-left: 10px;
+    }
 
     &__logo {
         display: block;
@@ -94,7 +101,6 @@
     &__link {
         display: flex;
         align-items: center;
-        column-gap: 1rem;
         border-left: 4px solid transparent;
         color: #213F7D;
         opacity: 0.5;
@@ -102,12 +108,12 @@
         font-weight: 400;
         transition: all 500ms;
         text-decoration: none;
-        padding: 10px 30px;
+        padding: 15px 30px;
 
         @include on-event {
             text-decoration: none;
             color: #213F7D;
-            // opacity: 1;
+            opacity: 1;
             background: rgba(57, 205, 204, 0.06);
             border-left: 3px solid rgb(57, 205, 204);
         }
