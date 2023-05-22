@@ -1,0 +1,73 @@
+.filter-form-group {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 20px;
+
+    label {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        color: #545F7D;
+    }
+
+    input {
+        background: #FFFFFF;
+        border: 1px solid rgba(33, 63, 125, 0.2);
+        border-radius: 8px;
+        padding: 12px 20px;
+
+        &:not(:placeholder-shown) {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            color: #545F7D;
+
+            &::-webkit-input-placeholder,
+            &:-webkit-autofill::first-line,
+            &:-webkit-autofill {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 16px;
+                opacity: 0.2;
+                color: #545F7D;
+            }
+        }
+    }
+}
+
+.filter-form {
+    background: #FFFFFF;
+    border: 1px solid rgba(84, 95, 125, 0.14);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    max-width: 230px;
+    padding: 30px 20px;
+    position: absolute;
+    top: 500px;
+}
+
+.reset-btn {
+    border: 1px solid #545F7D;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    background-color: #FFFFFF;
+    width: 98px;
+    height: 40px;
+    color: #545F7D;
+    margin-right: 14px;
+}
+
+.filter-btn {
+    background: #39CDCC;
+    border: 1px solid #39CDCC;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    width: 98px;
+    height: 40px;
+    color: #FFFFFF;
+}
