@@ -1,30 +1,27 @@
 import { User } from "../../types";
-// import { useUsers } from "../UserProvider";
 import { Link } from "react-router-dom";
-import { Hamburger } from "../../assets";
 import '../styles/users.scss'
+import HamburgerButton from "./Hamburger";
+import Tool from "./Tooltip";
 
 interface UserTileProps {
     user: User,
 }
 
 export const UserTile = ({ user }: UserTileProps) => {
-    const truncateString = (str: String, len: Number) => {
-        return str?.length > len ? str.substring(0, Math.max(Number(len) - 3, 0)) + '...' : str;
-    }
+
     return (
         <div className="table-body">
             <div className="body-group-1">
-                <div>{truncateString(user.orgName, 20)}</div>
-                <div><Link to={`/users/${user.id}`}>{truncateString(user.userName, 20)}</Link></div>
-                <div>{truncateString(user.email, 20)}</div>
+                <div>{Tool(user.orgName)}</div>
+                <div><Link to={`/users/${user.id}`}>{Tool(user.userName)}</Link></div>
+                <div>{Tool(user.email)}</div>
                 <div>{user.phoneNumber.split(' x')[0]}</div>
                 <div>{user.createdAt.substring(0, 10)}</div>
-
             </div>
             <div className="body-group-2">
-                <div className="inactive">Inactive</div>
-                <div className="hamburger" ><img src={Hamburger()} alt="" /></div>
+                <div className="active">Active</div>
+                <div className="hamburger" ><HamburgerButton user={user} /></div>
             </div>
         </div>
     )
