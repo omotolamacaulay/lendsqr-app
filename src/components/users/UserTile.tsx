@@ -20,7 +20,7 @@ export const UserTile = ({ user }: UserTileProps) => {
                 <div>{user.createdAt.substring(0, 10)}</div>
             </div>
             <div className="body-group-2">
-                <div className="active">Active</div>
+                <div className="users-active">Active</div>
                 <div className="hamburger" ><HamburgerButton user={user} /></div>
             </div>
         </div>
