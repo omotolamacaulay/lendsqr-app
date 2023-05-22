@@ -1,11 +1,22 @@
 .container {
     max-width: 100%;
-    padding: 16px;
     min-height: 100vh;
     background-color: #FBFBFB;
+    transition: all 500ms;
     @media screen and (min-width: 992px) {
         margin-left: 283px;
         margin-right: 0px;
         padding: 30px;
+    }
+}
+
+.hamburger-toggle {
+    position: absolute;
+    top: 28px;
+    right: 1px;
+    z-index: 10;
+    @media screen and (min-width: 992px) {
+        right: 22px;
+        display: none;
     }
 }
