@@ -35,6 +35,12 @@ import HamburgerSVG from '../assets/images/hamburger.svg';
 import FilterSVG from '../assets/images/filter.svg';
 import VectorSVG from '../assets/images/vector.svg';
 import SideArrowDownSVG from '../assets/images/side-arrow-down.svg';
+import ViewDetailsSVG from '../assets/images/view-details.svg';
+import BlacklistUserSVG from '../assets/images/blacklist-user.svg';
+import ActivateUserSVG from '../assets/images/activate-user.svg';
+
+
+
 
 
 export const BackArrow = () => {
@@ -262,6 +268,24 @@ export const Vector = () => {
 export const SideArrow = () => {
     return (
         SideArrowDownSVG
+    )
+}
+
+export const ViewDetails = () => {
+    return (
+        ViewDetailsSVG
+    )
+}
+
+export const BlacklistUser = () => {
+    return (
+        BlacklistUserSVG
+    )
+}
+
+export const ActivateUser = () => {
+    return (
+        ActivateUserSVG
     )
 }
 
