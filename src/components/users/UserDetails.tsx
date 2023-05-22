@@ -1,9 +1,10 @@
-import React, { useEffect } from "react"
-import { Link, useParams } from "react-router-dom"
-import '../styles/userdetail.scss'
-import { useUsers } from '../UserProvider'
-import { UserDetail, UserDetail as UserProps } from "../../types"
-import { BackArrow } from "../../assets/"
+import React, { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import '../styles/userdetail.scss';
+import { useUsers } from '../UserProvider';
+import { UserDetail, UserDetail as UserProps } from "../../types";
+import { BackArrow } from "../../assets/";
+import Tool from "./Tooltip";
 
 const UserDetails = () => {
     const { id } = useParams();
@@ -15,7 +16,7 @@ const UserDetails = () => {
             data = JSON.parse(users).find((user: UserProps) => user.id === id)
             usersDispatch({
                 type: "FETCH__USERDETAIL",
-                payload: {data} 
+                payload: { data }
             })
         } else {
             const getSingleUser = async () => {
@@ -23,16 +24,14 @@ const UserDetails = () => {
                 data = await res.json();
                 usersDispatch({
                     type: "FETCH__USERDETAIL",
-                    payload: {data} 
+                    payload: { data }
                 })
             }
             getSingleUser()
         }
 
     }, [usersDispatch, id]);
-    const truncateString = (str: String, len: Number) => {
-        return str?.length > len ? str.substr(0, Math.max(Number(len) - 3, 0)) + '...' : str;
-    }
+
     return (
         <div className="userDetail">
             <section className="top-area">
@@ -109,7 +108,7 @@ const UserDetails = () => {
                         </div>
                         <div>
                             <h6>Email Address</h6>
-                            <p>{truncateString(user.email, 20)}</p>
+                            <p>{Tool(user.email)}</p>
                         </div>
                         <div>
                             <h6>Bvn</h6>
@@ -155,7 +154,7 @@ const UserDetails = () => {
                         </div>
                         <div>
                             <h6>office email</h6>
-                            <p>{truncateString(user.education.officeEmail, 20)}</p>
+                            <p>{Tool(user.education.officeEmail)}</p>
                         </div>
                         <div>
                             <h6>Monthly income</h6>
