@@ -1,11 +1,46 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import '../styles/sidenav.scss'
-import { SwitchOrg, Dashboard, Users, Guarantors, Loans, DecisionModels, Savings, LoanRequest, Whitelist, Karma, Organization, LoanProducts, SavingProducts, FeesCharges, Transactions, Services, ServiceAccount, Settlements, Reports, Preferences, FeesAndPricing, AuditLogs, SystemMessages, SideArrow, Logout } from "../../assets";
+import { 
+    SwitchOrg, 
+    Dashboard, 
+    Users, 
+    Guarantors, 
+    Loans, 
+    DecisionModels, 
+    Savings, 
+    LoanRequest, 
+    Whitelist, 
+    Karma, 
+    Organization, 
+    LoanProducts, 
+    SavingProducts, 
+    FeesCharges, 
+    Transactions, 
+    Services, 
+    ServiceAccount, 
+    Settlements, 
+    Reports, 
+    Preferences, 
+    FeesAndPricing, 
+    AuditLogs, 
+    SystemMessages, 
+    SideArrow, 
+    Logout, 
+    Logo 
+} from "../../assets";
 
-const Sidenav = () => {
+type ToggleClass = {
+    name: string
+}
+const Sidenav = ({name}: ToggleClass) => {
     return (
-        <nav className="sidebar">
+        <nav className={name}>
+            <h1 className="mobile-header">
+                <Link to='/'>
+                    <img src={Logo()} alt="" />lendsqr
+                </Link>
+            </h1>
             <div className="sidebar__menu">
                 <h4><img src={SwitchOrg()} alt="" /> Switch Organization<img src={SideArrow()} className='sideArrow' alt="" /></h4>
                 <div>
@@ -67,13 +102,11 @@ const Sidenav = () => {
                                 <img src={Karma()} alt="" />Karma
                             </Link>
                         </li>
-
                     </ul>
 
                     <div>
                         <p>businesses</p>
                         <ul className="sidebar__list">
-
                             <li>
                                 <Link to="" className="sidebar__link">
                                 <img src={Organization()} alt="" />Organization
@@ -124,7 +157,6 @@ const Sidenav = () => {
                     <div>
                         <p>Settings</p>
                         <ul className="sidebar__list">
-
                             <li>
                                 <Link to="" className="sidebar__link">
                                 <img src={Preferences()} alt="" />Preferences
