@@ -54,7 +54,6 @@ const Login = () => {
             </div>
             <span>Forgot PASSWORD?</span>
             <Link to="/" className='submit'>Log In</Link>
-            {/* <input type="submit" value="Log In" className='btn btn-primary btn-block' /> */}
           </form>
         </div>
       </div>
